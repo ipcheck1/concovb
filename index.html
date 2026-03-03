@@ -9,7 +9,7 @@
 body{
     margin:0;
     font-family: Arial, Helvetica, sans-serif;
-    background:#0d1117;
+    background: linear-gradient(135deg,#0d1117,#111827,#0d1117);
     color:white;
 }
 
@@ -17,13 +17,14 @@ body{
 .title{
     text-align:center;
     margin-top:40px;
-    font-size:40px;
+    font-size:45px;
     font-weight:bold;
+    letter-spacing:2px;
     background: linear-gradient(90deg,#58a6ff,#ff7b72,#58a6ff);
     background-size:200%;
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-    animation: shine 4s linear infinite;
+    animation: shine 5s linear infinite;
 }
 
 @keyframes shine{
@@ -34,29 +35,32 @@ body{
 .container{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:20px;
-    width:90%;
+    gap:25px;
+    width:92%;
     margin:50px auto;
 }
 
 .card{
     background:#161b22;
-    border-radius:12px;
+    border-radius:15px;
     overflow:hidden;
-    transition:0.3s;
+    transition:0.4s;
+    box-shadow:0 0 15px rgba(0,0,0,0.5);
+    border:1px solid #30363d;
 }
 
 .card:hover{
     transform:scale(1.05);
-    background:#21262d;
+    box-shadow:0 0 25px #58a6ff;
 }
 
 label{
     display:block;
     padding:20px;
-    font-size:20px;
+    font-size:22px;
     cursor:pointer;
     text-align:center;
+    font-weight:bold;
 }
 
 input{
@@ -71,22 +75,41 @@ input{
 }
 
 input:checked ~ .content{
-    max-height:500px;
+    max-height:600px;
     padding:15px;
 }
 
 .content p{
-    margin:6px 0;
-    font-size:14px;
+    margin:5px 0;
+    font-size:13px;
+    padding:4px;
+    border-bottom:1px solid #21262d;
+    transition:0.3s;
 }
 
-@media(max-width:900px){
+.content p:hover{
+    color:#58a6ff;
+    padding-left:8px;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    padding:30px;
+    background:#161b22;
+    border-top:1px solid #30363d;
+    margin-top:40px;
+    font-size:14px;
+    color:#8b949e;
+}
+
+@media(max-width:1000px){
     .container{
         grid-template-columns:repeat(2,1fr);
     }
 }
 
-@media(max-width:500px){
+@media(max-width:600px){
     .container{
         grid-template-columns:1fr;
     }
@@ -125,6 +148,36 @@ input:checked ~ .content{
 <p>Edge of Tomorrow</p>
 <p>Casino Royale</p>
 <p>Transformers</p>
+<p>Rambo</p>
+<p>The Raid</p>
+<p>Terminator 2</p>
+<p>Skyfall</p>
+<p>Deadpool</p>
+<p>Logan</p>
+<p>Spider-Man: No Way Home</p>
+<p>Iron Man</p>
+<p>Hulk</p>
+<p>Thor</p>
+<p>Justice League</p>
+<p>Wonder Woman</p>
+<p>Aquaman</p>
+<p>Man of Steel</p>
+<p>Bad Boys</p>
+<p>Rush Hour</p>
+<p>The Expendables</p>
+<p>Fury</p>
+<p>American Sniper</p>
+<p>World War Z</p>
+<p>Upgrade</p>
+<p>Dredd</p>
+<p>The Transporter</p>
+<p>Kingsman</p>
+<p>Bloodshot</p>
+<p>Hardcore Henry</p>
+<p>Oblivion</p>
+<p>I Am Legend</p>
+<p>Pacific Rim</p>
+<p>Godzilla</p>
 </div>
 </div>
 
@@ -148,11 +201,41 @@ input:checked ~ .content{
 <p>Harry Potter</p>
 <p>Star Wars</p>
 <p>Uncharted</p>
-<p>Treasure Planet</p>
 <p>The Mummy</p>
 <p>Journey 2</p>
 <p>Doctor Strange</p>
 <p>Chronicles of Narnia</p>
+<p>Paddington</p>
+<p>The Goonies</p>
+<p>Cast Away</p>
+<p>The Jungle Book</p>
+<p>Treasure Planet</p>
+<p>National Treasure</p>
+<p>Waterworld</p>
+<p>The Martian</p>
+<p>Prince of Persia</p>
+<p>Pan</p>
+<p>Hook</p>
+<p>Everest</p>
+<p>The Lost City</p>
+<p>The Secret Life of Walter Mitty</p>
+<p>Ad Astra</p>
+<p>Tomorrowland</p>
+<p>A Wrinkle in Time</p>
+<p>Peter Pan</p>
+<p>Ready Player One</p>
+<p>Into the Wild</p>
+<p>The Mummy Returns</p>
+<p>The Golden Compass</p>
+<p>Atlantis</p>
+<p>Journey to the Center of the Earth</p>
+<p>Ben-Hur</p>
+<p>Robin Hood</p>
+<p>The Three Musketeers</p>
+<p>Clash of the Titans</p>
+<p>Gods of Egypt</p>
+<p>Troy</p>
+<p>300: Rise of an Empire</p>
 </div>
 </div>
 
@@ -161,26 +244,17 @@ input:checked ~ .content{
 <input type="checkbox" id="korku">
 <label for="korku">👻 Korku</label>
 <div class="content">
-<p>The Conjuring</p>
-<p>Insidious</p>
-<p>Hereditary</p>
-<p>The Nun</p>
-<p>It</p>
-<p>Sinister</p>
-<p>Annabelle</p>
-<p>The Exorcist</p>
-<p>A Quiet Place</p>
-<p>The Ring</p>
-<p>Scream</p>
-<p>Paranormal Activity</p>
-<p>The Grudge</p>
-<p>Us</p>
-<p>Get Out</p>
-<p>The Shining</p>
-<p>Lights Out</p>
-<p>Smile</p>
-<p>Bird Box</p>
-<p>The Babadook</p>
+<!-- 50 korku filmi -->
+<p>The Conjuring</p><p>Insidious</p><p>Hereditary</p><p>The Nun</p><p>It</p>
+<p>Sinister</p><p>Annabelle</p><p>The Exorcist</p><p>A Quiet Place</p><p>The Ring</p>
+<p>Scream</p><p>Paranormal Activity</p><p>The Grudge</p><p>Us</p><p>Get Out</p>
+<p>The Shining</p><p>Lights Out</p><p>Smile</p><p>Bird Box</p><p>The Babadook</p>
+<p>Halloween</p><p>Friday the 13th</p><p>Nightmare on Elm Street</p><p>The Descent</p><p>The Others</p>
+<p>Jeepers Creepers</p><p>The Mist</p><p>Mama</p><p>Orphan</p><p>Drag Me to Hell</p>
+<p>The Visit</p><p>Host</p><p>The Cabin in the Woods</p><p>Rec</p><p>The Hills Have Eyes</p>
+<p>28 Days Later</p><p>World War Z</p><p>The Invisible Man</p><p>The Black Phone</p><p>It Follows</p>
+<p>The Witch</p><p>Gerald's Game</p><p>Doctor Sleep</p><p>Pet Sematary</p><p>Poltergeist</p>
+<p>The Omen</p><p>The Ritual</p><p>Truth or Dare</p><p>The Possession</p><p>The Boy</p>
 </div>
 </div>
 
@@ -189,30 +263,25 @@ input:checked ~ .content{
 <input type="checkbox" id="komedi">
 <label for="komedi">😂 Komedi</label>
 <div class="content">
-<p>The Hangover</p>
-<p>Superbad</p>
-<p>Deadpool</p>
-<p>Home Alone</p>
-<p>Mr. Bean</p>
-<p>Yes Man</p>
-<p>The Mask</p>
-<p>Rush Hour</p>
-<p>Central Intelligence</p>
-<p>Step Brothers</p>
-<p>Grown Ups</p>
-<p>Dumb and Dumber</p>
-<p>We're the Millers</p>
-<p>Scary Movie</p>
-<p>21 Jump Street</p>
-<p>Johnny English</p>
-<p>Bruce Almighty</p>
-<p>White Chicks</p>
-<p>Paul</p>
-<p>Free Guy</p>
+<!-- 50 komedi filmi -->
+<p>The Hangover</p><p>Superbad</p><p>Deadpool</p><p>Home Alone</p><p>Mr. Bean</p>
+<p>Yes Man</p><p>The Mask</p><p>Rush Hour</p><p>Central Intelligence</p><p>Step Brothers</p>
+<p>Grown Ups</p><p>Dumb and Dumber</p><p>We're the Millers</p><p>Scary Movie</p><p>21 Jump Street</p>
+<p>Johnny English</p><p>Bruce Almighty</p><p>White Chicks</p><p>Paul</p><p>Free Guy</p>
+<p>Meet the Parents</p><p>Neighbors</p><p>The Dictator</p><p>Ride Along</p><p>Due Date</p>
+<p>The Internship</p><p>Zoolander</p><p>Get Smart</p><p>Spy</p><p>The Proposal</p>
+<p>Pitch Perfect</p><p>Hot Fuzz</p><p>Super Troopers</p><p>Click</p><p>Big Daddy</p>
+<p>Dr. Dolittle</p><p>Jumanji</p><p>Little Man</p><p>Coming to America</p><p>The Nutty Professor</p>
+<p>Shaun of the Dead</p><p>The Heat</p><p>Ted</p><p>Night at the Museum</p><p>Shrek</p>
+<p>Kung Fu Panda</p><p>Ice Age</p><p>Despicable Me</p><p>The Croods</p><p>Minions</p>
 </div>
 </div>
 
 </div>
+
+<footer>
+© Telif hakkı 2026 xwx aittir. Tüm hakları saklıdır.
+</footer>
 
 </body>
 </html>
