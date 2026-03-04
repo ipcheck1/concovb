@@ -18,8 +18,8 @@ body {
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: var(--bg-dark);
   color: var(--text-dark);
-  transition: background 0.5s, color 0.5s;
   overflow-x:hidden;
+  transition: background 0.5s, color 0.5s;
 }
 header{
   text-align:center;
@@ -47,7 +47,6 @@ header p{
   font-size:1.3rem;
   color: #d0e6ff;
   animation:fadeInUp 1s ease 0.3s forwards;
-  opacity:0;
 }
 main{
   max-width:1000px;
@@ -62,8 +61,6 @@ section{
   box-shadow:0 4px 20px rgba(0,0,0,0.2);
   transition:transform 0.3s,box-shadow 0.3s,background 0.3s;
   perspective:1000px;
-  opacity:0;
-  transform: translateY(50px);
 }
 section:hover{
   transform: rotateY(3deg) translateY(-5px);
@@ -192,7 +189,7 @@ footer{
 
 <div id="particles"></div>
 <button id="darkModeToggle">🌙</button>
-<div id="ticker"><span>Craft Hosting ile güvenli ve saglam sunucular • Hemen Başla! • 7/24 Destek</span></div>
+<div id="ticker"><span>Craft Hosting ile güvenli ve hızlı sunucular! • Hemen Başla! • 7/24 Destek</span></div>
 
 <header>
 <h1>Craft Hosting Bilgilendirme</h1>
@@ -220,9 +217,9 @@ footer{
 <footer>
 © 2026 Craft Hosting Bilgilendirme Sitesi
 <div class="social-icons">
-<a href="#" target="_blank"></a>
-<a href="#" target="_blank"></a>
-<a href="#" target="_blank"></a>
+<a href="#" target="_blank">🌐</a>
+<a href="#" target="_blank">🐦</a>
+<a href="#" target="_blank">📘</a>
 </div>
 </footer>
 
@@ -250,16 +247,9 @@ p.style.left=Math.random()*100+'%';
 p.animate([{transform:'translateY(0px)'},{transform:'translateY(-150px)'}],{duration:5000+Math.random()*5000,iterations:Infinity});
 particles.appendChild(p);
 }
-window.addEventListener('scroll',()=>{
-document.querySelectorAll('section').forEach(s=>{
-let top=s.getBoundingClientRect().top;
-if(top<window.innerHeight-100){
-s.style.opacity=1;
-s.style.transform='translateY(0)';
-}
-});
-});
 </script>
 
+</body>
+</html>
 </body>
 </html>
