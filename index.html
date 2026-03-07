@@ -6,12 +6,12 @@
 <title>Craft Hosting Bilgilendirme</title>
 <style>
 :root {
-  --bg-dark: #1e1e1e;
+  --bg-dark: #2a003f;
   --bg-light: #ffffff;
   --text-dark: #ffffff;
   --text-light: #000000;
-  --primary: #ff8c00;
-  --accent: #ffa500;
+  --primary: #ff6fff;
+  --accent: #d47fff;
 }
 body {
   margin:0;
@@ -27,6 +27,7 @@ header{
   background: linear-gradient(90deg,var(--primary),var(--accent));
   position:relative;
   overflow:hidden;
+  box-shadow: 0 0 50px rgba(255,111,255,0.6);
 }
 header h1{
   font-size:3rem;
@@ -34,22 +35,22 @@ header h1{
   animation:fadeInDown 1s ease forwards;
   position:relative;
   color:#fff;
-  text-shadow: 0 0 10px rgba(255,255,255,0.7);
+  text-shadow: 0 0 20px #ff6fff, 0 0 30px #d47fff;
 }
 header h1::after{
   content:"";
   position:absolute;
   width:100%;
   height:4px;
-  background:linear-gradient(90deg,rgba(255,255,255,0.8),rgba(255,255,255,0));
+  background:linear-gradient(90deg,rgba(255,111,255,0.8),rgba(212,127,255,0));
   top:0; left:0;
   animation: slideLight 2s linear infinite;
 }
 header p{
   font-size:1.3rem;
-  color: #ffd9b3;
+  color: #ffc0ff;
   animation:fadeInUp 1s ease 0.3s forwards;
-  text-shadow: 0 0 5px rgba(255,255,255,0.4);
+  text-shadow: 0 0 10px #ff6fff;
 }
 main{
   max-width:1000px;
@@ -61,14 +62,14 @@ section{
   padding:25px;
   background: rgba(255,255,255,0.05);
   border-radius:12px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.2);
+  box-shadow:0 4px 20px rgba(255,111,255,0.3);
   transition:transform 0.4s,box-shadow 0.4s,background 0.4s;
   perspective:1200px;
 }
 section:hover{
   transform: rotateY(6deg) translateY(-12px) scale(1.03);
-  box-shadow:0 15px 40px rgba(255,140,0,0.7);
-  background: rgba(255,255,255,0.2);
+  box-shadow:0 15px 40px rgba(255,111,255,0.7);
+  background: rgba(255,255,255,0.15);
 }
 h2{
   display:flex;
@@ -76,6 +77,7 @@ h2{
   gap:10px;
   margin-top:0;
   transition: color 0.3s;
+  color:#ffc0ff;
 }
 h2 .icon{
   display:inline-block;
@@ -102,6 +104,7 @@ button{
   overflow:hidden;
   position:relative;
   transition:transform 0.2s, box-shadow 0.2s;
+  box-shadow:0 0 20px rgba(255,111,255,0.6);
 }
 button::before{
   content:"🚀";
@@ -109,7 +112,7 @@ button::before{
 }
 button:hover{
   transform: scale(1.1);
-  box-shadow:0 8px 25px rgba(255,140,0,0.4);
+  box-shadow:0 0 30px rgba(255,111,255,0.9);
 }
 button:active::after{
   animation:ripple 0.6s linear;
@@ -131,7 +134,8 @@ button::after{
 footer{
   text-align:center;
   padding:20px;
-  border-top:1px solid rgba(255,255,255,0.2);
+  border-top:1px solid rgba(255,111,255,0.3);
+  color:#ffc0ff;
 }
 .social-icons a{
   margin:0 10px;
@@ -168,7 +172,7 @@ footer{
   position:fixed;
   bottom:0;
   width:100%;
-  background: rgba(255,140,0,0.85);
+  background: rgba(255,111,255,0.85);
   color:#fff;
   overflow:hidden;
   white-space:nowrap;
@@ -186,7 +190,8 @@ footer{
 @keyframes ripple{0%{transform:translate(-50%,-50%) scale(0);opacity:0.6;}50%{transform:translate(-50%,-50%) scale(3);opacity:0.3;}100%{transform:translate(-50%,-50%) scale(0);opacity:0;}}
 @keyframes slideLight{0%{left:-100%;}100%{left:100%;}}
 @keyframes tickerAnim{0%{transform:translateX(100%);}100%{transform:translateX(-100%);}}
-@keyframes glowParticle{0%,100%{opacity:0.5;transform:scale(1);}50%{opacity:1;transform:scale(1.5);}}
+@keyframes glowParticle{0%,100%{opacity:0.5;transform:scale(1);}50%{opacity:1;transform:scale(1.8);}}
+@keyframes meteorFall{0%{transform:translateY(-50px) translateX(0) rotate(0deg);}100%{transform:translateY(600px) translateX(300px) rotate(720deg);}}
 </style>
 </head>
 <body>
@@ -204,7 +209,7 @@ footer{
 </section>
 <section>
 <h2><span class="icon">🤚</span> Davet İle Bedava Sunucu</h2>
-<p>Size Davet Ederek Sunucu Almanız İcin Hizmet Veriyoruz</p>
+<p>Size Davet Ederek Sunucu Almanız İçin Hizmet Veriyoruz</p>
 </section>
 <section>
 <h2><span class="icon">💬</span> 7/24 Destek</h2>
@@ -233,14 +238,15 @@ toggle.addEventListener('click',()=>{
     document.body.style.color='var(--text-light)';
   }
 });
+
 const particles=document.getElementById('particles');
-for(let i=0;i<150;i++){
+for(let i=0;i<200;i++){
   let p=document.createElement('div');
   const size=Math.random()*6+2;
   p.style.position='absolute';
   p.style.width=size+'px';
   p.style.height=size+'px';
-  p.style.background='#ff8c00';
+  p.style.background='#ff6fff';
   p.style.borderRadius='50%';
   p.style.top=Math.random()*100+'%';
   p.style.left=Math.random()*100+'%';
@@ -253,6 +259,24 @@ for(let i=0;i<150;i++){
   p.style.animation='glowParticle '+(2+Math.random()*2)+'s infinite alternate';
   particles.appendChild(p);
 }
+
+
+for(let i=0;i<5;i++){
+  let m=document.createElement('div');
+  const size=Math.random()*4+2;
+  m.style.position='absolute';
+  m.style.width=size+'px';
+  m.style.height=size*3+'px';
+  m.style.background='linear-gradient(white, #ff6fff)';
+  m.style.top='-50px';
+  m.style.left=Math.random()*window.innerWidth+'px';
+  m.style.borderRadius='50%';
+  m.style.opacity=Math.random();
+  m.style.transform='rotate(45deg)';
+  m.animate([{transform:'translateY(-50px) translateX(0) rotate(0deg)'},{transform:`translateY(${window.innerHeight+50}px) translateX(${Math.random()*500-250}px) rotate(720deg)`}],{duration:3000+Math.random()*2000,iterations:Infinity});
+  particles.appendChild(m);
+}
+
 const buttons=document.querySelectorAll('button');
 buttons.forEach(btn=>{
   btn.addEventListener('click',e=>{
