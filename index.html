@@ -12,7 +12,7 @@ body {
     display:flex;
     justify-content:center;
     align-items:center;
-    background: linear-gradient(135deg, #ffffff, #38bdf8);
+    background:#1e3a8a; /* Düz mavi arka plan */
     color:white;
 }
 
@@ -28,14 +28,12 @@ body {
     display:block;
     margin-left:auto;
     margin-right:auto;
-    filter: drop-shadow(0 0 10px #38bdf8) drop-shadow(0 0 20px #0ea5e9);
 }
 
 h1 {
     font-size:32px;
     margin-bottom:20px;
-    color:#f0f9ff;
-    text-shadow: 0 0 8px #0ea5e9, 0 0 12px #38bdf8;
+    color:white;
 }
 
 input {
@@ -48,7 +46,6 @@ input {
     font-size:16px;
     background: rgba(255,255,255,0.1);
     color:white;
-    text-shadow: 0 0 5px #0ea5e9;
 }
 
 input::placeholder { color:#d0f0ff; }
@@ -59,38 +56,34 @@ button {
     border:none;
     border-radius:8px;
     cursor:pointer;
-    background:#38bdf8;
+    background:#2563eb;
     color:white;
     font-weight:bold;
     transition:0.3s;
-    box-shadow: 0 0 10px #38bdf8, 0 0 20px #0ea5e9;
 }
 
 button:hover {
-    background:#0ea5e9;
-    box-shadow: 0 0 20px #38bdf8, 0 0 30px #0ea5e9;
+    background:#1d4ed8;
 }
 
 .underline-link {
     text-decoration:underline;
     cursor:pointer;
-    color:#ffffff;
+    color:#93c5fd;
     font-weight:bold;
-    text-shadow: 0 0 5px #0ea5e9;
 }
 
 #logoutBtn {
     position:fixed;
     left:20px;
     top:20px;
-    background:#f87171;
+    background:#ef4444;
     color:white;
     border:none;
     padding:8px 12px;
     border-radius:6px;
     cursor:pointer;
     display:none;
-    box-shadow: 0 0 10px #f87171, 0 0 20px #f87171;
 }
 
 #message {
@@ -98,21 +91,18 @@ button:hover {
     top:20px;
     left:50%;
     transform:translateX(-50%);
-    background:#38bdf8;
+    background:#2563eb;
     color:white;
     padding:10px 20px;
     border-radius:8px;
     opacity:0;
     transition: all 0.5s ease;
     font-weight:bold;
-    text-shadow: 0 0 10px #ffffff, 0 0 20px #0ea5e9;
 }
 
 .info {
     margin:8px 0;
     font-size:16px;
-    color:#f0f9ff;
-    text-shadow: 0 0 5px #0ea5e9;
 }
 </style>
 </head>
@@ -123,7 +113,7 @@ button:hover {
 
 <div class="main-container">
 
-    <img src="https://iconscout.com/free-icon/free-mastercard-logo-icon_2944982" class="logo" alt="Logo">
+    <img src="https://cdn.iconscout.com/icon/free/png-256/mastercard-2944982-2422599.png" class="logo" alt="MasterCard Logo">
 
     <h1>IP Bilgi Sorgulama</h1>
 
