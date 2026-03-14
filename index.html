@@ -1,206 +1,148 @@
 <!DOCTYPE html>
+
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Netes</title>
+<title>Valorant Premade</title>
 
 <style>
 
 body{
 margin:0;
-font-family:Segoe UI;
-background:linear-gradient(135deg,#1e3a8a,#2563eb);
+font-family:Arial;
+background:linear-gradient(135deg,#2b0040,#7b2cbf);
 color:white;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
+overflow-x:hidden;
 }
 
-.panel{
-width:550px;
-background:rgba(255,255,255,0.08);
-padding:25px;
-border-radius:15px;
-backdrop-filter:blur(10px);
-text-align:center;
+.container{
+max-width:800px;
+margin:auto;
+padding:30px;
+animation:fade 1s;
 }
 
-h1{
-color:#93c5fd;
-text-shadow:0 0 15px #60a5fa;
+.card{
+background:rgba(0,0,0,0.6);
+padding:20px;
+border-radius:12px;
+margin-bottom:20px;
+box-shadow:0 0 15px #a855f7;
+animation:slideUp 0.5s;
 }
 
-.tabs button{
-width:120px;
-}
-
-input{
-width:90%;
+input,select{
+width:100%;
 padding:10px;
-margin:6px;
+margin-top:10px;
 border:none;
 border-radius:8px;
-background:rgba(255,255,255,0.2);
+background:#3b0764;
 color:white;
 }
 
 button{
-padding:10px 20px;
-margin:6px;
+margin-top:10px;
+padding:10px;
 border:none;
 border-radius:8px;
-background:#3b82f6;
+background:#a855f7;
 color:white;
-font-weight:bold;
 cursor:pointer;
+transition:0.3s;
 }
 
 button:hover{
-background:#1d4ed8;
 transform:scale(1.05);
+background:#c084fc;
 }
 
-.menu button{
-width:200px;
+.hidden{
+display:none;
 }
 
-.box{
-margin-top:15px;
-padding:10px;
-border:1px solid rgba(255,255,255,0.2);
+.post{
+background:#2e1065;
+padding:15px;
 border-radius:10px;
+margin-top:10px;
+animation:fade 0.6s;
 }
 
-.status{
-color:#bfdbfe;
-margin-bottom:10px;
+@keyframes fade{
+from{opacity:0}
+to{opacity:1}
 }
 
-.message{
-position:fixed;
-top:-80px;
-left:50%;
-transform:translateX(-50%);
-background:#2563eb;
-padding:15px 30px;
-border-radius:10px;
-font-weight:bold;
-transition:0.6s;
-box-shadow:0 0 20px rgba(0,0,0,0.3);
-}
-
-.message.show{
-top:20px;
+@keyframes slideUp{
+from{transform:translateY(20px);opacity:0}
+to{transform:translateY(0);opacity:1}
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="message" id="msg"></div>
+<div class="container">
 
-<div class="panel">
+<h1>Valorant Premade</h1>
 
-<h1>Netes</h1>
+<div id="auth" class="card">
 
-<div class="tabs">
-<button onclick="showLogin()">Giriş</button>
-<button onclick="showRegister()">Kayıt</button>
-</div>
+<h3>Kayıt / Giriş</h3>
 
-<div id="loginBox">
+<input id="user" placeholder="Kullanıcı adı">
+<input id="pass" type="password" placeholder="Şifre">
 
-<h2>Giriş</h2>
+<button onclick="login()">Giriş / Kayıt</button>
 
-<input id="loginUser" placeholder="Kullanıcı adı">
-<input id="loginPass" type="password" placeholder="Şifre">
-
-<br>
-
-<button onclick="login()">Giriş Yap</button>
+<p id="msg"></p>
 
 </div>
 
-<div id="registerBox" style="display:none">
+<div id="panel" class="hidden">
 
-<h2>Kayıt</h2>
+<div class="card">
 
-<input id="regUser" placeholder="Kullanıcı adı">
-<input id="regPass" type="password" placeholder="Şifre">
+<h3>Premade Oluştur</h3>
 
-<br>
+<label>Mod</label>
 
-<button onclick="register()">Kayıt Ol</button>
+<select id="mode">
+<option>Derecesiz</option>
+<option>Rekabete Dayalı</option>
+</select>
 
-</div>
+<label>Rank</label>
 
-<div id="menu" style="display:none">
+<select id="rank">
+<option>Demir</option>
+<option>Bronz</option>
+<option>Gümüş</option>
+<option>Altın</option>
+<option>Platin</option>
+<option>Yücelik</option>
+<option>Ölümsüzlük</option>
+<option>Radyant</option>
+</select>
 
-<h2 id="welcome"></h2>
+<label>Grup Kodu</label>
 
-<div class="menu">
+<input id="code" placeholder="VALO123">
 
-<button onclick="openBots()">Minecraft Bot Gönderme</button>
-
-<button onclick="openIP()">IP Analiz</button>
-
-<button onclick="logout()">Çıkış</button>
-
-</div>
-
-</div>
-
-<div id="bots" style="display:none">
-
-<h2>Bot Panel</h2>
-
-<div class="status" id="serverStatus"></div>
-
-<input id="serverIP" placeholder="Sunucu IP">
-
-<button onclick="checkServer()">Server Status</button>
-
-<div class="box">
-
-<h3>Bot Panel 1</h3>
-
-<input id="botCount1" placeholder="Bot sayısı">
-
-<button onclick="sendBots1()">Bot Gönder</button>
-
-<div id="botResult1"></div>
+<button onclick="postPremade()">Paylaş</button>
 
 </div>
 
-<div class="box">
+<div class="card">
 
-<h3>Bot Panel 2</h3>
+<h3>Aktif Premadeler</h3>
 
-<input id="botCount2" placeholder="Bot sayısı">
-
-<button onclick="sendBots2()">Bot Gönder</button>
-
-<div id="botResult2"></div>
+<div id="posts"></div>
 
 </div>
-
-<button onclick="back()">Geri</button>
-
-</div>
-
-<div id="ipPage" style="display:none">
-
-<h2>IP Analiz</h2>
-
-<input id="ipInput" placeholder="IP adresi">
-
-<button onclick="ipLookup()">Sorgula</button>
-
-<div id="ipInfo"></div>
-
-<button onclick="back()">Geri</button>
 
 </div>
 
@@ -208,192 +150,83 @@ top:20px;
 
 <script>
 
-function siteMsg(text){
-msg.innerText=text
-msg.classList.add("show")
-setTimeout(()=>{msg.classList.remove("show")},3000)
-}
+function login(){
 
-function showLogin(){
-loginBox.style.display="block"
-registerBox.style.display="none"
-}
+let u=document.getElementById("user").value
+let p=document.getElementById("pass").value
 
-function showRegister(){
-loginBox.style.display="none"
-registerBox.style.display="block"
-}
-
-function register(){
-
-let u=regUser.value
-let p=regPass.value
-
-let db=JSON.parse(localStorage.getItem("users"))||[]
-
-if(db.find(x=>x.u==u)){
-siteMsg("Bu kullanıcı zaten var")
+if(!u || !p){
+msg("Bilgileri gir")
 return
 }
 
-db.push({u,p})
+localStorage.setItem("user",u)
+localStorage.setItem("pass",p)
 
-localStorage.setItem("users",JSON.stringify(db))
+document.getElementById("auth").style.display="none"
+document.getElementById("panel").classList.remove("hidden")
 
-siteMsg("Kayıt başarılı")
-
-showLogin()
-
-}
-
-function login(){
-
-let u=loginUser.value
-let p=loginPass.value
-
-let db=JSON.parse(localStorage.getItem("users"))||[]
-
-let found=db.find(x=>x.u==u && x.p==p)
-
-if(found){
-
-localStorage.setItem("activeUser",u)
-
-loginBox.style.display="none"
-registerBox.style.display="none"
-menu.style.display="block"
-
-welcome.innerText="Merhaba "+u
-
-siteMsg("Giriş başarılı")
-
-}else{
-
-siteMsg("Hatalı giriş")
+loadPosts()
 
 }
 
+function msg(t){
+document.getElementById("msg").innerText=t
 }
 
-function logout(){
+function postPremade(){
 
-localStorage.removeItem("activeUser")
+let mode=document.getElementById("mode").value
+let rank=document.getElementById("rank").value
+let code=document.getElementById("code").value
+let user=localStorage.getItem("user")
 
-location.reload()
+let time=new Date().toLocaleTimeString()
 
-}
+let posts=JSON.parse(localStorage.getItem("posts") || "[]")
 
-window.onload=function(){
+posts.unshift({
+user:user,
+mode:mode,
+rank:rank,
+code:code,
+time:time
+})
 
-let u=localStorage.getItem("activeUser")
+localStorage.setItem("posts",JSON.stringify(posts))
 
-if(u){
-
-loginBox.style.display="none"
-registerBox.style.display="none"
-menu.style.display="block"
-
-welcome.innerText="Merhaba "+u
-
-}
-
-}
-
-function openBots(){
-menu.style.display="none"
-bots.style.display="block"
-}
-
-function openIP(){
-menu.style.display="none"
-ipPage.style.display="block"
-}
-
-function back(){
-bots.style.display="none"
-ipPage.style.display="none"
-menu.style.display="block"
-}
-
-async function checkServer(){
-
-let ip=serverIP.value
-
-let res=await fetch("https://api.mcsrvstat.us/2/"+ip)
-let data=await res.json()
-
-serverStatus.innerHTML=
-"Online: "+data.online+
-"<br>Oyuncular: "+(data.players?data.players.online:0)
+loadPosts()
 
 }
 
-function sendBots1(){
+function loadPosts(){
 
-let count=botCount1.value
-let i=0
+let posts=JSON.parse(localStorage.getItem("posts") || "[]")
 
-let interval=setInterval(()=>{
+let html=""
 
-i++
+posts.forEach(p=>{
 
-botResult1.innerText="Gönderilen bot "+i+"/"+count
-
-if(i>=count){
-
-clearInterval(interval)
-
-siteMsg("Bot gönderme tamamlandı")
-
-}
-
-},200)
-
-}
-
-function sendBots2(){
-
-let count=botCount2.value
-let i=0
-
-let interval=setInterval(()=>{
-
-i++
-
-botResult2.innerText="Gönderilen bot "+i+"/"+count
-
-if(i>=count){
-
-clearInterval(interval)
-
-siteMsg("Bot gönderme tamamlandı")
-
-}
-
-},200)
-
-}
-
-async function ipLookup(){
-
-let ip=ipInput.value
-
-let res=await fetch("https://ipapi.co/"+ip+"/json/")
-let data=await res.json()
-
-ipInfo.innerHTML=
-
-`
-IP: ${data.ip}<br>
-Ülke: ${data.country_name}<br>
-Şehir: ${data.city}<br>
-Bölge: ${data.region}<br>
-Posta kodu: ${data.postal}<br>
-Saat dilimi: ${data.timezone}<br>
-ISP: ${data.org}<br>
-Koordinat: ${data.latitude}, ${data.longitude}
+html+=`
+<div class="post">
+<b>${p.user}</b><br>
+Mod: ${p.mode}<br>
+Rank: ${p.rank}<br>
+Grup Kodu: <b>${p.code}</b><br>
+⏱ ${p.time}
+</div>
 `
 
+})
+
+document.getElementById("posts").innerHTML=html
+
+}
+
+if(localStorage.getItem("user")){
+document.getElementById("auth").style.display="none"
+document.getElementById("panel").classList.remove("hidden")
+loadPosts()
 }
 
 </script>
