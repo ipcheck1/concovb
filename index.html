@@ -3,272 +3,242 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CraftHosting</title>
+<title>CraftHosting - Minecraft</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Segoe UI,Arial;
-}
-
 body{
+margin:0;
+font-family:Segoe UI,Arial;
 background:#0b0f1a;
 color:white;
 }
 
 
-
-header{
+.topbar{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 60px;
+padding:20px 40px;
 background:#060912;
-border-bottom:1px solid #1e293b;
+border-bottom:1px solid #1f2937;
 }
 
 .logo{
-font-size:24px;
+font-size:22px;
 font-weight:bold;
 color:#38bdf8;
 }
 
-nav a{
-margin-left:30px;
-text-decoration:none;
-color:#cbd5f5;
-transition:0.3s;
-}
-
-nav a:hover{
-color:#38bdf8;
-}
-
-
-
-.hero{
-text-align:center;
-padding:140px 20px;
-background:radial-gradient(circle at center,#1e3a8a20,#020617);
-}
-
-.hero h1{
-font-size:60px;
-margin-bottom:20px;
-}
-
-.hero span{
-color:#38bdf8;
-}
-
-.hero p{
+.info{
+font-size:14px;
 color:#94a3b8;
-font-size:18px;
+}
+
+
+h1{
+text-align:center;
+margin-top:50px;
+}
+
+.subtitle{
+text-align:center;
+color:#94a3b8;
 margin-bottom:40px;
 }
 
-.btn{
-background:#38bdf8;
-padding:15px 35px;
-border:none;
-border-radius:10px;
-font-size:16px;
-cursor:pointer;
-color:black;
-font-weight:bold;
-transition:0.3s;
-}
-
-.btn:hover{
-transform:scale(1.05);
-box-shadow:0 0 20px #38bdf8;
-}
-
-
-
-.features{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:30px;
-padding:80px 40px;
-}
-
-.feature{
-background:#111827;
-padding:30px;
-border-radius:12px;
-width:260px;
-transition:0.3s;
-}
-
-.feature:hover{
-transform:translateY(-8px);
-background:#1f2937;
-}
-
-.feature h3{
-margin-bottom:10px;
-color:#38bdf8;
-}
-
-.feature p{
-color:#94a3b8;
-}
-
-
-
-.pricing{
-text-align:center;
-padding:80px 20px;
-}
 
 .plans{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:30px;
-margin-top:40px;
+display:grid;
+grid-template-columns:repeat(4, 1fr);
+gap:20px;
+padding:20px 40px 80px 40px;
 }
 
-.plan{
+.card{
 background:#111827;
-padding:40px;
-border-radius:15px;
-width:240px;
+padding:18px;
+border-radius:12px;
+border:1px solid #1f2937;
 transition:0.3s;
+font-size:14px;
 }
 
-.plan:hover{
-transform:scale(1.05);
-border:1px solid #38bdf8;
+.card:hover{
+transform:translateY(-8px);
+border-color:#38bdf8;
+box-shadow:0 0 15px #38bdf8;
+}
+
+.card h3{
+margin:0 0 8px 0;
+color:#38bdf8;
+font-size:16px;
+}
+
+.details{
+color:#cbd5e1;
+line-height:1.5;
+margin:10px 0;
+font-size:13px;
 }
 
 .price{
-font-size:32px;
-margin:15px 0;
-color:#38bdf8;
+margin:8px 0;
+font-weight:bold;
+color:#22c55e;
+}
+
+.free{
+color:#facc15;
 }
 
 
-
-footer{
-text-align:center;
-padding:30px;
-margin-top:60px;
-background:#060912;
-color:#94a3b8;
+button{
+width:100%;
+padding:10px;
+margin-top:8px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:13px;
+font-weight:bold;
+background:#38bdf8;
+color:black;
 }
 
-
-
-.fade{
-opacity:0;
-transform:translateY(30px);
-transition:1s;
+button:hover{
+opacity:0.9;
 }
 
-.show{
-opacity:1;
-transform:translateY(0);
+/* RESPONSIVE */
+@media(max-width:1000px){
+.plans{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:600px){
+.plans{
+grid-template-columns:repeat(1,1fr);
+}
 }
 </style>
 </head>
 
 <body>
 
-<header>
+<div class="topbar">
 <div class="logo">CraftHosting</div>
-
-<nav>
-<a href="#">Home</a>
-<a href="#features">Features</a>
-<a href="#pricing">Pricing</a>
-</nav>
-</header>
-
-<section class="hero fade">
-<h1>Powerful <span>CraftHosting</span> Servers</h1>
-<p>High performance hosting solutions for your projects.</p>
-
-<button class="btn" onclick="start()">Get Started</button>
-</section>
-
-<section class="features" id="features">
-
-<div class="feature fade">
-<h3>⚡ Fast SSD</h3>
-<p>Sunucularımız yüksek performanslı SSD diskler ile donatılmıştır. Daha hızlı yükleme süreleri, daha iyi performans ve kesintisiz deneyim sağlar..</p>
+<div class="info">🛡 Korumalı | ⚡ Hızlı | 🚀 %99.9 Uptime</div>
 </div>
 
-<div class="feature fade">
-<h3>🛡️ DDoS Protection</h3>
-<p>Gelişmiş DDoS koruma sistemi sayesinde sunucularınız saldırılara karşı korunur ve kesintisiz hizmet alırsınız.</p>
-</div>
-
-<div class="feature fade">
-<h3>🌍 99.9% Uptime</h3>
-<p>Yüksek performanslı altyapımız sayesinde sunucularımız sürekli aktif kalır ve kesintisiz hizmet sunar. Web siteniz her zaman erişilebilir olur..</p>
-</div>
-
-</section>
-
-<section class="pricing fade" id="pricing">
-
-<h2>Hosting Planları</h2>
+<h1>CraftHosting Server Planları</h1>
+<p class="subtitle">Bedava ve Hızlı Sunucular</p>
 
 <div class="plans">
 
-<div class="plan">
-<h3>Baslangıc</h3>
-<div class="price">$2/mo</div>
-<p>Website<br>4GB <br>Bedava!</p>
+
+<div class="card">
+<h3>🆓 2GB</h3>
+<div class="details">
+2 GB RAM<br>
+2 vCPU<br>
+10 GB Disk 💾
+</div>
+<div class="price free">Bedava</div>
+<button onclick="order()">Sipariş Ver</button>
 </div>
 
-<div class="plan">
-<h3>Orta</h3>
-<div class="price">$4/mo</div>
-<p>website<br>6GB <br>Bedava!</p>
+
+<div class="card">
+<h3>4GB</h3>
+<div class="details">
+4 GB RAM<br>
+4 vCPU<br>
+20 GB Disk 💾
+</div>
+<div class="price">$2 / ay</div>
+<button onclick="order()">Sipariş Ver</button>
 </div>
 
-<div class="plan">
-<h3>Güzel</h3>
-<div class="price">$6/mo</div>
-<p>Website<br>8GB <br>Bedava!</p>
+
+<div class="card">
+<h3>6GB</h3>
+<div class="details">
+6 GB RAM<br>
+4 vCPU<br>
+20 GB Disk 💾
+</div>
+<div class="price">$4 / ay</div>
+<button onclick="order()">Sipariş Ver</button>
+</div>
+
+
+<div class="card">
+<h3>8GB</h3>
+<div class="details">
+8 GB RAM<br>
+4 vCPU<br>
+30 GB Disk 💾
+</div>
+<div class="price">$6 / ay</div>
+<button onclick="order()">Sipariş Ver</button>
+</div>
+
+
+<div class="card">
+<h3>10GB</h3>
+<div class="details">
+10 GB RAM<br>
+4 vCPU<br>
+30 GB Disk 💾
+</div>
+<div class="price">$8 / ay</div>
+<button onclick="order()">Sipariş Ver</button>
+</div>
+
+
+<div class="card">
+<h3>12GB</h3>
+<div class="details">
+12 GB RAM<br>
+4 vCPU<br>
+30 GB Disk 💾
+</div>
+<div class="price">$10 / ay</div>
+<button onclick="order()">Sipariş Ver</button>
+</div>
+
+
+<div class="card">
+<h3>14GB</h3>
+<div class="details">
+14 GB RAM<br>
+4 vCPU<br>
+40 GB Disk 💾
+</div>
+<div class="price">$12 / ay</div>
+<button onclick="order()">Sipariş Ver</button>
+</div>
+
+
+<div class="card">
+<h3>16GB</h3>
+<div class="details">
+16 GB RAM<br>
+4 vCPU<br>
+40 GB Disk 💾
+</div>
+<div class="price">$14 / ay</div>
+<button onclick="order()">Sipariş Ver</button>
 </div>
 
 </div>
-
-</section>
-
-<footer>
-© 2026 CraftHosting
-</footer>
 
 <script>
-
-function start(){
-window.location.href="https://client.crafthosting.com.tr";
+function order(){
+window.location.href="https://client.crafthosting.com.tr/market/1/view";
 }
-
-
-
-const elements=document.querySelectorAll(".fade");
-
-function reveal(){
-elements.forEach(el=>{
-const top=el.getBoundingClientRect().top;
-if(top<window.innerHeight-100){
-el.classList.add("show");
-}
-});
-}
-
-window.addEventListener("scroll",reveal);
-reveal();
-
 </script>
 
 </body>
